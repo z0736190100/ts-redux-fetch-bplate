@@ -2,6 +2,7 @@ import axios from "axios";
 import { Dispatch } from "redux";
 import { ActionType } from "../action-types";
 import { Action } from "../actions";
+import {API_URL} from "../../api_configuration/constants";
 
 export const fetchEntities = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
@@ -11,7 +12,7 @@ export const fetchEntities = (term: string) => {
 
     try {
       // todo make it configurable
-      const url = "https://registry.npmjs.org/-/v1/search";
+      const url = API_URL;
 
       const { data } = await axios.get(
         url,
@@ -30,12 +31,15 @@ export const fetchEntities = (term: string) => {
         type: ActionType.FETCH_ENTITIES_SUCCESS,
         payload: names,
       });
+
     } catch (err) {
       if (err instanceof Error) {
+
         dispatch({
           type: ActionType.FETCH_ENTITIES_ERROR,
           payload: err.message,
         });
+
       }
     }
   };
