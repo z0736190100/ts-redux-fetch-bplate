@@ -1,20 +1,20 @@
 import { ActionType } from "../action-types";
 
-interface FetchEntitiesAction {
-  type: ActionType.FETCH_ENTITIES;
+interface FetchDataAction {
+  type: ActionType.FETCH_DATA;
 }
 
-interface FetchEntitiesSuccessAction {
-  type: ActionType.FETCH_ENTITIES_SUCCESS;
+interface FetchDataSuccessAction {
+  type: ActionType.FETCH_DATA_SUCCESS;
   payload: string[];
 }
 
-interface FetchEntitiesErrorAction {
-  type: ActionType.FETCH_ENTITIES_ERROR;
-  payload: string;
+interface FetchDataErrorAction {
+  type: ActionType.FETCH_DATA_ERROR;
+  payload: boolean;
 }
 
 export type Action =
-  | FetchEntitiesAction
-  | FetchEntitiesSuccessAction
-  | FetchEntitiesErrorAction;
+  | FetchDataAction
+  | FetchDataSuccessAction
+  | FetchDataErrorAction;

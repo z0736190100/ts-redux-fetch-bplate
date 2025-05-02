@@ -1,5 +1,5 @@
 export enum ActionType {
-  FETCH_ENTITIES = 'fetch_entities',
-  FETCH_ENTITIES_SUCCESS = 'fetch_entities_success',
-  FETCH_ENTITIES_ERROR = 'fetch_entities_error',
+  FETCH_DATA = 'fetch_data',
+  FETCH_DATA_SUCCESS = 'fetch_data_success',
+  FETCH_DATA_ERROR = 'fetch_data_error',
 }

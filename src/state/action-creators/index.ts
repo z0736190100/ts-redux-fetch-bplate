@@ -4,10 +4,10 @@ import { ActionType } from "../action-types";
 import { Action } from "../actions";
 import {API_URL} from "../../api_configuration/constants";
 
-export const fetchEntities = (term: string) => {
+export const fetchRepos = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.FETCH_ENTITIES,
+      type: ActionType.FETCH_DATA,
     });
 
     try {
@@ -28,7 +28,7 @@ export const fetchEntities = (term: string) => {
       });
 
       dispatch({
-        type: ActionType.FETCH_ENTITIES_SUCCESS,
+        type: ActionType.FETCH_DATA_SUCCESS,
         payload: names,
       });
 
@@ -36,8 +36,8 @@ export const fetchEntities = (term: string) => {
       if (err instanceof Error) {
 
         dispatch({
-          type: ActionType.FETCH_ENTITIES_ERROR,
-          payload: err.message,
+          type: ActionType.FETCH_DATA_ERROR,
+          payload: true,
         });
 
       }
